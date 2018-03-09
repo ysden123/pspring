@@ -15,10 +15,8 @@ import org.springframework.stereotype.Component
 @Component
 @Autowired
 class MyComponent1(val args: ApplicationArguments) {
-  MyComponent1.logger.info("==>MyComponent1")
-  MyComponent1.logger.info(s"args.getSourceArgs.length = ${args.getSourceArgs.length}")
-}
-
-object MyComponent1{
   private val logger = LoggerFactory.getLogger(classOf[MyComponent1])
+
+  logger.info("==>MyComponent1")
+  logger.info(s"args.getSourceArgs.length = ${args.getSourceArgs.length}")
 }
