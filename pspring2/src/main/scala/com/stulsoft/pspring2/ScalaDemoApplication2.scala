@@ -13,7 +13,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
   */
 @SpringBootApplication
 class ScalaDemoApplication2 extends CommandLineRunner{
-  val logger = LoggerFactory.getLogger(classOf[ScalaDemoApplication2])
+  private val logger = LoggerFactory.getLogger(classOf[ScalaDemoApplication2])
   override def run(args: String*): Unit = {
     logger.info("==>ScalaDemoApplication2.run")
   }
