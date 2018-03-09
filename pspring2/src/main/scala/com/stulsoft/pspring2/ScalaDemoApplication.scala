@@ -17,6 +17,6 @@ class ScalaDemoApplication{
 
 object ScalaDemoApplication {
   def main(args: Array[String]): Unit = {
-    SpringApplication.run(classOf[ScalaDemoApplication], args: _*)
+    SpringApplication.run(classOf[ScalaDemoApplication], args: _*).close()
   }
 }
