@@ -26,8 +26,7 @@ class ScalaDemoApplication3 extends CommandLineRunner {
 
   override def run(args: String*): Unit = {
     logger.info("==>ScalaDemoApplication3.run")
-    logger.info(s"myComponent1.server=${myComponent1.server}")
-
+    logger.info(s"myComponent1.server=${myComponent1.server}, myComponent1.defineServer()=${myComponent1.defineServer()}")
   }
 }
 
