@@ -7,6 +7,7 @@ package com.stulsoft.pspring2
 import java.io.PrintStream
 
 import org.slf4j.LoggerFactory
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.{CommandLineRunner, SpringApplication}
 import org.springframework.core.env.Environment
@@ -20,9 +21,13 @@ import org.springframework.core.env.Environment
 @SpringBootApplication
 class ScalaDemoApplication3 extends CommandLineRunner {
   private val logger = LoggerFactory.getLogger(classOf[ScalaDemoApplication3])
+  @Autowired
+  private val myComponent1:MyComponent1 = null
 
   override def run(args: String*): Unit = {
     logger.info("==>ScalaDemoApplication3.run")
+    logger.info(s"myComponent1.server=${myComponent1.server}")
+
   }
 }
 
