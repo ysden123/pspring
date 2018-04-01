@@ -16,10 +16,10 @@ class Application2 extends CommandLineRunner {
   private var environment: AbstractEnvironment = _
 
   override def run(strings: String*): Unit = {
-    println("==>run")
+    println("==>Application2.run")
     println(s"""environment.getProperty("test.test1")=${environment.getProperty("test.test1")}""")
     environment.getProperty("test.test1")
 
-    println("<==run")
+    println("<==Application2.run")
   }
 }
