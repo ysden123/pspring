@@ -6,9 +6,9 @@ import org.springframework.boot.SpringApplication
   * @author Yuriy Stul
   * @since 4/2/2018
   */
-object Runner1 {
+object Runner {
   def main(args: Array[String]): Unit = {
-    SpringApplication.run(classOf[App1], "mode1", "param11")
-    SpringApplication.run(classOf[App1], "mode2", "param12")
+    SpringApplication.run(classOf[App], "mode1", "param11", "1000")
+    SpringApplication.run(classOf[App], "mode2", "param12", "2000")
   }
 }

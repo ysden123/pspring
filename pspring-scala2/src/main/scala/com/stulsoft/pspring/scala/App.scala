@@ -8,10 +8,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
   * @since 4/2/2018
   */
 @SpringBootApplication
-class App1 extends CommandLineRunner {
+class App extends CommandLineRunner {
   override def run(args: String*): Unit = {
-    println("==>App1.run")
+    println("==>App.run")
     args.foreach(println)
-    println("<==App1.run")
+    new Worker(args(0), args(1), args(2).toLong).start
+    println("<==App.run")
   }
 }
