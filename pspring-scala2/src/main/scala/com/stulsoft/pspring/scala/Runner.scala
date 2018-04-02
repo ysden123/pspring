@@ -8,7 +8,9 @@ import org.springframework.boot.SpringApplication
   */
 object Runner {
   def main(args: Array[String]): Unit = {
-    SpringApplication.run(classOf[App], "mode1", "param11", "1000")
-    SpringApplication.run(classOf[App], "mode2", "param12", "2000")
+    println("==>main")
+    SpringApplication.run(classOf[App], "mode1", "param11", "1000").close()
+    SpringApplication.run(classOf[App], "mode2", "param12", "2000").close()
+    println("<==main")
   }
 }
