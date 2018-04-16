@@ -11,7 +11,7 @@ import org.springframework.boot.SpringApplication
   */
 object Runner8 {
   def main(args: Array[String]): Unit = {
-    val applications:Array[Object] = Array(classOf[Application6], classOf[Application7])
+    val applications:Array[Class[_]] = Array(classOf[Application6], classOf[Application7])
     SpringApplication.run(applications, args).close()
   }
 }
