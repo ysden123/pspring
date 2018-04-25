@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.autoconfigure.SpringBootApplication
 
+import scala.concurrent.{Await, Future}
+import scala.concurrent.duration._
 /**
   * @author Yuriy Stul
   */
@@ -24,6 +26,7 @@ class Application @Autowired()(private val userRepository:UserRepository) extend
 
   override def run(args: String*): Unit = {
     println("==>run")
+    import scala.concurrent.ExecutionContext.Implicits.global
     val user = new User()
     user.email = "email 5"
     user.name = "the name 5"
@@ -33,11 +36,19 @@ class Application @Autowired()(private val userRepository:UserRepository) extend
     println(s"Saved $result")
 
     println("Print all users:")
-    userRepository.findAll().forEach(new Consumer[User] {
+    def printConsumer = new Consumer[User] {
       override def accept(user: User): Unit = {
         println(user)
       }
+    }
+    val futures = (1 to 3).map(_ =>{
+      Future{
+        userRepository.findAll().forEach(printConsumer)
+      }
     })
+
+    futures.foreach(f => Await.result(f, 5.seconds))
+
     println("<==run")
   }
 
