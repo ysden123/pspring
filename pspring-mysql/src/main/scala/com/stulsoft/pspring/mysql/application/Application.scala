@@ -4,6 +4,8 @@
 
 package com.stulsoft.pspring.mysql.application
 
+import java.util.function.Consumer
+
 import org.springframework.beans.factory.InitializingBean
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.CommandLineRunner
@@ -29,6 +31,13 @@ class Application @Autowired()(private val userRepository:UserRepository) extend
     println(s"Saving $user")
     val result = userRepository.save(user)
     println(s"Saved $result")
+
+    println("Print all users:")
+    userRepository.findAll().forEach(new Consumer[User] {
+      override def accept(user: User): Unit = {
+        println(user)
+      }
+    })
     println("<==run")
   }
 
