@@ -9,7 +9,7 @@ import org.springframework.boot.SpringApplication
 object Runner7 {
   def main(args: Array[String]): Unit = {
     println("==>Runner7")
-    val applications:Array[Object] = Array(classOf[Application4], classOf[Application4])
+    val applications:Array[Class[_]] = Array(classOf[Application4], classOf[Application4])
     SpringApplication.run(applications, args).close()
     println("<==Runner7")
   }

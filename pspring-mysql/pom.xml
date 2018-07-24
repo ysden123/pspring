@@ -2,10 +2,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.stulsoft</groupId>
-    <artifactId>pspring-scala</artifactId>
+    <artifactId>pspring-mysql</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>${project.artifactId}</name>
-    <description>Playing with Spring, Scala using pom</description>
+    <description>Playing with Spring, MySQLySQL Scala using pom</description>
     <inceptionYear>2018</inceptionYear>
 
     <parent>
@@ -20,6 +20,8 @@
         <encoding>UTF-8</encoding>
         <scala.version>2.12.5</scala.version>
         <scala.compat.version>2.12</scala.compat.version>
+        <mysql.connector.version>6.0.6</mysql.connector.version>
+        <scala.test.version>3.0.4</scala.test.version>
     </properties>
 
     <dependencies>
@@ -41,12 +43,24 @@
             <version>1</version>
         </dependency>
 
+        <!-- JPA Data (We are going to use Repositories, Entities, Hibernate, etc...) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <!-- Use MySQL Connector-J -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.connector.version}</version>
+        </dependency>
 
         <!-- Test -->
         <dependency>
             <groupId>org.scalatest</groupId>
             <artifactId>scalatest_${scala.compat.version}</artifactId>
-            <version>3.0.4</version>
+            <version>${scala.test.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
