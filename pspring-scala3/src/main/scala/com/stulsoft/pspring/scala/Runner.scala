@@ -1,10 +1,13 @@
+/*
+ * Copyright (c) 2018. Yuriy Stul
+ */
+
 package com.stulsoft.pspring.scala
 
 import org.springframework.boot.SpringApplication
 
 /**
   * @author Yuriy Stul
-  * @since 4/2/2018
   */
 object Runner {
   def main(args: Array[String]): Unit = {

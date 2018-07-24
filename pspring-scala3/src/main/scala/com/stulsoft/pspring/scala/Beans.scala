@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2018. Yuriy Stul
+ */
+
 package com.stulsoft.pspring.scala
 
 import java.util.concurrent.ScheduledExecutorService
@@ -8,7 +12,6 @@ import org.springframework.stereotype.Component
 
 /**
   * @author Yuriy Stul
-  * @since 4/2/2018
   */
 @Component
 class Beans {

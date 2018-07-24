@@ -1,8 +1,11 @@
+/*
+ * Copyright (c) 2018. Yuriy Stul
+ */
+
 package com.stulsoft.pspring.scala
 
 /**
   * @author Yuriy Stul
-  * @since 4/2/2018
   */
 class Worker(val arg1: String, val arg2: String, val delay: Long) extends Thread {
   override def run(): Unit = {
