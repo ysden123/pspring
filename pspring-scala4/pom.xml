@@ -47,7 +47,6 @@
             <version>1</version>
         </dependency>
 
-
         <!-- Test -->
         <dependency>
             <groupId>org.scalatest</groupId>
