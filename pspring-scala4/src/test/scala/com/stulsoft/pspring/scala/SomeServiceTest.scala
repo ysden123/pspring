@@ -12,7 +12,8 @@ import org.springframework.context.annotation.{ComponentScan, Configuration}
 import org.springframework.test.context.support.AnnotationConfigContextLoader
 import org.springframework.test.context.{ContextConfiguration, TestContextManager}
 
-/**
+/** Unit test for Scala and Spring
+  *
   * @author Yuriy Stul
   */
 @RunWith(classOf[JUnitRunner])

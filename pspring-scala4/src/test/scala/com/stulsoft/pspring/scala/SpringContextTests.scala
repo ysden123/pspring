@@ -13,7 +13,8 @@ import org.springframework.stereotype.Service
 import org.springframework.test.context.support.AnnotationConfigContextLoader
 import org.springframework.test.context.{ActiveProfiles, ContextConfiguration, TestContextManager}
 
-/**
+/** Starter: simple example of unit testing for Spring and Scala
+  *
   * See [[https://gist.github.com/shishkin/f3ce94fb601f63cdf1f5]]
   *
   * @author Yuriy Stul
