@@ -4,10 +4,10 @@
 
 package com.stulsoft.pspring.scala
 
+import javax.inject.Inject
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
 import org.scalatest.{BeforeAndAfterEach, FunSuite, Matchers, Suite}
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.{ComponentScan, Configuration}
 import org.springframework.test.context.support.AnnotationConfigContextLoader
 import org.springframework.test.context.{ContextConfiguration, TestContextManager}
@@ -17,7 +17,7 @@ import org.springframework.test.context.{ContextConfiguration, TestContextManage
   */
 @RunWith(classOf[JUnitRunner])
 class SomeServiceTest extends FunSuite with SpringSomeServiceTest with Matchers {
-  @Autowired
+  @Inject
   val ss: SomeService = null
 
   test("testUseF1") {
