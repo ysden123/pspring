@@ -2,14 +2,14 @@
  * Copyright (c) 2018. Yuriy Stul
  */
 
-/**
+/** Configuration from code
+  *
   * @author Yuriy Stul
   */
 package com.stulsoft.pspring.scala.service
 
 import com.stulsoft.pspring.scala.data.DataSource
 import org.scalatest.{BeforeAndAfterEach, FlatSpec, Matchers}
-import org.springframework.beans.factory.annotation.Autowired
 
 class ProcessorTest extends FlatSpec with BeforeAndAfterEach with Matchers {
   var processor: Processor = _
