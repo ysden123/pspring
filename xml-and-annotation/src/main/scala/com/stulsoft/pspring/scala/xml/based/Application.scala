@@ -9,11 +9,13 @@ import com.stulsoft.pspring.scala.service.Processor
 import org.slf4j.LoggerFactory
 import org.springframework.context.annotation.ComponentScan
 import org.springframework.context.support.ClassPathXmlApplicationContext
+import org.springframework.stereotype.Component
 
 /** Usage of XML-based configuration
   * @author Yuriy Stul
   */
 //@ComponentScan(basePackages = Array("com.stulsoft.pspring.scala"))
+//@Component
 object Application {
   private val logger = LoggerFactory.getLogger(Application.getClass)
 
@@ -25,8 +27,8 @@ object Application {
     ctx.getBeanDefinitionNames.foreach(n => logger.info(s"Bean: $n"))
 
     // instantiate the sql and file objects from the application context
-    val sql = ctx.getBean("sqlProcessor").asInstanceOf[Processor]
-    val file = ctx.getBean("fileProcessor").asInstanceOf[Processor]
+    val sql = ctx.getBean("sqlProcessor2").asInstanceOf[Processor]
+    val file = ctx.getBean("fileProcessor2").asInstanceOf[Processor]
 
     // let them speak
     logger.info(s"sql.data() ${sql.data()}")
