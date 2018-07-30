@@ -2,14 +2,13 @@
  * Copyright (c) 2018. Yuriy Stul
  */
 
-package com.stulsoft.pspring.scala
+package com.stulsoft.pspring.scala.annotation.based
 
 import javax.inject.Inject
 import org.slf4j.LoggerFactory
 import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.context.ApplicationContext
-import org.springframework.context.annotation.ComponentScan
 
 /** Usage of annotation-based configuration
   * @author Yuriy Stul

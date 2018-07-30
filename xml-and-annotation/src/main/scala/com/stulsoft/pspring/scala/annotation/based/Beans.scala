@@ -2,7 +2,7 @@
  * Copyright (c) 2018. Yuriy Stul
  */
 
-package com.stulsoft.pspring.scala
+package com.stulsoft.pspring.scala.annotation.based
 
 import com.stulsoft.pspring.scala.data.{FileSource, SqlSource}
 import com.stulsoft.pspring.scala.service.Processor

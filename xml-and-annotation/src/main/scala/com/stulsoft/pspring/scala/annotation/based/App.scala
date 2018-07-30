@@ -2,9 +2,8 @@
  * Copyright (c) 2018. Yuriy Stul
  */
 
-package com.stulsoft.pspring.scala
+package com.stulsoft.pspring.scala.annotation.based
 
-import com.stulsoft.pspring.scala.Application.logger
 import com.stulsoft.pspring.scala.service.Processor
 import org.slf4j.LoggerFactory
 import org.springframework.boot.SpringApplication
