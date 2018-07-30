@@ -11,6 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.context.ApplicationContext
 
 /** Usage of annotation-based configuration
+  *
   * @author Yuriy Stul
   */
 @SpringBootApplication(scanBasePackages = Array("com.stulsoft.pspring.scala"))
