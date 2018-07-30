@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2018. Yuriy Stul
+  -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--SQL data processing-->
+    <bean id="sqlProcessor" class="com.stulsoft.pspring.scala.service.Processor">
+        <property name="dataSource" ref="sqlDataSource"/>
+    </bean>
+
+    <bean id="sqlDataSource" class="com.stulsoft.pspring.scala.data.SqlSource"/>
+
+    <!--File data processing-->
+    <bean id="fileProcessor" class="com.stulsoft.pspring.scala.service.Processor">
+        <property name="dataSource" ref="fileDataSource"/>
+    </bean>
+
+    <bean id="fileDataSource" class="com.stulsoft.pspring.scala.data.SqlSource"/>
+</beans>

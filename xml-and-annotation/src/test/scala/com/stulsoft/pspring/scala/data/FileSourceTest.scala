@@ -8,9 +8,9 @@ import org.junit.runner.RunWith
 import org.scalatest.{BeforeAndAfterEach, FlatSpec, Matchers, Suite}
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.{ComponentScan, Configuration}
-import org.springframework.test.context.{ContextConfiguration, TestContextManager}
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner
 import org.springframework.test.context.support.AnnotationConfigContextLoader
+import org.springframework.test.context.{ContextConfiguration, TestContextManager}
 
 /**
   * @author Yuriy Stul

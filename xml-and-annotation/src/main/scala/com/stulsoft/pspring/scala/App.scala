@@ -4,22 +4,21 @@
 
 package com.stulsoft.pspring.scala
 
+import com.stulsoft.pspring.scala.Application.logger
 import com.stulsoft.pspring.scala.service.Processor
 import org.slf4j.LoggerFactory
-import org.springframework.context.annotation.ComponentScan
-import org.springframework.context.support.ClassPathXmlApplicationContext
+import org.springframework.boot.SpringApplication
 
-/** Usage of XML-based configuration
+/**
   * @author Yuriy Stul
   */
-@ComponentScan(basePackages = Array("com.stulsoft.pspring.scala"))
-object Application {
-  private val logger = LoggerFactory.getLogger(Application.getClass)
+object App {
+  private val logger = LoggerFactory.getLogger(classOf[App])
 
   def main(args: Array[String]): Unit = {
     logger.info("==>main")
-    // open & read the application context file
-    val ctx = new ClassPathXmlApplicationContext("app.xml")
+    val ctx = SpringApplication.run(classOf[AppConfig], args: _*)
+    ctx.getBeanDefinitionNames.foreach(n => logger.info(s"Bean: $n"))
 
     // instantiate the sql and file objects from the application context
     val sql = ctx.getBean("sqlProcessor").asInstanceOf[Processor]
