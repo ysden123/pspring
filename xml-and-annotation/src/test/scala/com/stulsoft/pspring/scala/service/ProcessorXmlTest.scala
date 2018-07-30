@@ -4,7 +4,7 @@
 
 package com.stulsoft.pspring.scala.service
 
-import com.stulsoft.pspring.scala.Application
+import com.stulsoft.pspring.scala.xml.based.Application
 import org.scalatest.{BeforeAndAfterEach, FlatSpec, Matchers}
 import org.slf4j.LoggerFactory
 import org.springframework.context.support.ClassPathXmlApplicationContext

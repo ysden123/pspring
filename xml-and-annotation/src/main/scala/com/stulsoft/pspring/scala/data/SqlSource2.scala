@@ -5,15 +5,14 @@
 package com.stulsoft.pspring.scala.data
 
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.stereotype.{Component, Service}
+import org.springframework.stereotype.Component
 
 /**
   * @author Yuriy Stul
   */
-@Component
-class SqlSource extends DataSource {
-  @Autowired(required = true)
-  val sqlDataProvider: SqlDataProvider = null
+class SqlSource2 extends DataSource {
+  @Autowired
+  val sqlDataProvider: SqlDataProvider2 = null
 
   override def data(): String = sqlDataProvider.data()
 }
