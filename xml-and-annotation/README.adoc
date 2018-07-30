@@ -1,0 +1,3 @@
+= xml-and-annotation
+
+Playing with Spring using XML and annotation configurations.
