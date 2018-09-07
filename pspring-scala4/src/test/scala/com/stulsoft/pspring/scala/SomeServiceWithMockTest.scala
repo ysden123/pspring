@@ -5,8 +5,6 @@
 package com.stulsoft.pspring.scala
 
 import javax.inject.Inject
-import org.junit.runner.RunWith
-import org.scalatest.junit.JUnitRunner
 import org.scalatest.{BeforeAndAfterEach, FunSuite, Matchers, Suite}
 import org.springframework.context.annotation.{Bean, ComponentScan, Configuration, Profile}
 import org.springframework.test.context.support.AnnotationConfigContextLoader
@@ -16,7 +14,6 @@ import org.springframework.test.context.{ActiveProfiles, ContextConfiguration, T
   *
   * @author Yuriy Stul
   */
-@RunWith(classOf[JUnitRunner])
 class SomeServiceWithMockTest extends FunSuite with SpringSomeServiceWithMockTest with Matchers {
   @Inject
   val ss: SomeService = null
