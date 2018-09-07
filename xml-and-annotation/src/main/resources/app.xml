@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2018. Yuriy Stul
+  -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+   http://www.springframework.org/schema/context
+   http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+    <context:annotation-config/>
+    <!--SQL data processing-->
+    <bean id="sqlProcessor" class="com.stulsoft.pspring.scala.service.Processor">
+        <property name="dataSource" ref="sqlDataSource"/>
+    </bean>
+    <bean id="sqlDataSource" class="com.stulsoft.pspring.scala.data.SqlSource"/>
+    <bean id="sqlDataProvider" class="com.stulsoft.pspring.scala.data.SqlDataProvider"/>
+
+    <!--File data processing-->
+    <bean id="fileProcessor" class="com.stulsoft.pspring.scala.service.Processor">
+        <property name="dataSource" ref="fileDataSource"/>
+    </bean>
+    <bean id="fileDataSource" class="com.stulsoft.pspring.scala.data.FileSource"/>
+    <bean id="fileDataProvider" class="com.stulsoft.pspring.scala.data.FileDataProvider"/>
+</beans>
