@@ -14,7 +14,6 @@ import org.springframework.core.type.AnnotatedTypeMetadata;
 public class MyCondition implements Condition {
     @Override
     public boolean matches(ConditionContext conditionContext, AnnotatedTypeMetadata annotatedTypeMetadata) {
-        throw new RuntimeException("TEST");
-//        return false;
+        return false;
     }
 }

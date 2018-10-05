@@ -21,6 +21,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 @SpringBootApplication(scanBasePackages = {"com.stulsoft.pspring.scheduledj"})
 @PropertySource({"classpath:application.properties"})
 @Configuration
+@Conditional(value = MyCondition.class)
 @EnableScheduling
 public class Application implements CommandLineRunner {
     private static final Logger logger = LoggerFactory.getLogger(Application.class);
@@ -35,7 +36,6 @@ public class Application implements CommandLineRunner {
         logger.info("<==run");
     }
 
-    @Conditional(value = MyCondition.class)
     @Scheduled(fixedDelay = 2000)
     public void scheduleFixedDelay() {
         logger.info("==>scheduleFixedDelay");
