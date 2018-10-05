@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.stulsoft</groupId>
+	<artifactId>scheduled-scala</artifactId>
+	<version>1.0.0</version>
+	<packaging>jar</packaging>
+
+	<name>scheduled-scala</name>
+	<description>Demo project for Spring Boot with Scheduled - Scala</description>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.0.5.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>10</java.version>
+        <scala.version>2.12.7</scala.version>
+        <scala.compat.version>2.12</scala.compat.version>
+
+		<!--Logging-->
+		<logback.version>1.2.3</logback.version>
+		<scala.logging.version>3.9.0</scala.logging.version>
+
+		<!--Unit test-->
+		<junit.version>4.12</junit.version>
+		<scala.test.version>3.2.0-SNAP10</scala.test.version>
+		<scala.check.version>1.14.0</scala.check.version>
+		<scala.mock.version>4.1.0</scala.mock.version>
+	</properties>
+
+	<dependencies>
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-library</artifactId>
+            <version>${scala.version}</version>
+        </dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+		
+		<!-- Logging -->
+		<dependency>
+			<groupId>com.typesafe.scala-logging</groupId>
+			<artifactId>scala-logging_${scala.compat.version}</artifactId>
+			<version>${scala.logging.version}</version>
+		</dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback.version}</version>
+        </dependency>
+
+		<!--JUnit-->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Test -->
+		<!--Scalatest-->
+		<dependency>
+			<groupId>org.scalatest</groupId>
+			<artifactId>scalatest_${scala.compat.version}</artifactId>
+			<version>${scala.test.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.scalacheck</groupId>
+			<artifactId>scalacheck_${scala.compat.version}</artifactId>
+			<version>${scala.check.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.scalamock</groupId>
+			<artifactId>scalamock_${scala.compat.version}</artifactId>
+			<version>${scala.mock.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!--Spring test-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+            <plugin>
+                <!-- see http://davidb.github.com/scala-maven-plugin -->
+                <groupId>net.alchim31.maven</groupId>
+                <artifactId>scala-maven-plugin</artifactId>
+                <version>3.3.1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>compile</goal>
+                            <goal>testCompile</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                                <!--<arg>-make:transitive</arg>-->
+                                <arg>-dependencyfile</arg>
+                                <arg>${project.build.directory}/.scala_dependencies</arg>
+                            </args>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+</project>
