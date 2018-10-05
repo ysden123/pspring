@@ -5,28 +5,28 @@
 package com.stulsoft.pspring.scheduled
 
 import org.junit.runner.RunWith
-import org.scalatest.{BeforeAndAfterEach, FunSuite, Suite}
 import org.scalatest.junit.JUnitRunner
+import org.scalatest.{BeforeAndAfterEach, FunSuite, Suite}
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.{ComponentScan, Configuration}
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner
 import org.springframework.test.context.support.AnnotationConfigContextLoader
-import org.springframework.test.context.{ContextConfiguration, TestContextManager, TestPropertySource}
+import org.springframework.test.context.{ContextConfiguration, TestContextManager}
 
 /**
   * @author Yuriy Stul
   */
 //@RunWith(classOf[JUnitRunner])
 @RunWith(classOf[SpringJUnit4ClassRunner])
-@TestPropertySource(properties = Array("app.scheduling.enable=false"))
 class ApplicationTest extends FunSuite with SpringApplicationTest {
+  @Autowired
+  val app: Application = null
 
   test("testScheduleFixedDelay") {
-    val app = new Application
     app.scheduleFixedDelay()
   }
 }
 
-@TestPropertySource(properties = Array("app.scheduling.enable=false"))
 @ContextConfiguration(
   classes = Array(classOf[SomeComponentConfig]),
   loader = classOf[AnnotationConfigContextLoader])
@@ -38,7 +38,6 @@ trait SpringApplicationTest extends BeforeAndAfterEach {
   }
 }
 
-@TestPropertySource(properties = Array("app.scheduling.enable=false"))
 @ComponentScan(basePackages = Array("com.stulsoft.pspring.scheduled"))
 @Configuration
 class SomeComponentConfig {
