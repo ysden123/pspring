@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.stulsoft</groupId>
-	<artifactId>scheduled</artifactId>
+	<artifactId>scheduled-scala</artifactId>
 	<version>1.0.0</version>
 	<packaging>jar</packaging>
 
-	<name>scheduled</name>
-	<description>Demo project for Spring Boot with Scheduled</description>
+	<name>scheduled-scala</name>
+	<description>Demo project for Spring Boot with Scheduled - Scala</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -22,7 +22,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>10</java.version>
-        <scala.version>2.12.6</scala.version>
+        <scala.version>2.12.7</scala.version>
         <scala.compat.version>2.12</scala.compat.version>
 
 		<!--Logging-->
