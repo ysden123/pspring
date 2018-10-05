@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Conditional;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -34,6 +35,7 @@ public class Application implements CommandLineRunner {
         logger.info("<==run");
     }
 
+    @Conditional(value = MyCondition.class)
     @Scheduled(fixedDelay = 2000)
     public void scheduleFixedDelay() {
         logger.info("==>scheduleFixedDelay");
