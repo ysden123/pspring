@@ -1,0 +1,3 @@
+# pspring-scala-conf
+
+Demonstrates dynamic setting of the Spring Boot property file.
