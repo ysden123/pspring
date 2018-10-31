@@ -11,6 +11,7 @@ import org.springframework.boot.SpringApplication
   */
 object ByEnvApp2Runner {
   def main(args: Array[String]): Unit = {
+//    System.setProperty("TEST_ENV", "env")
     SpringApplication.run(classOf[ByEnvApp2], args: _*).close()
   }
 }

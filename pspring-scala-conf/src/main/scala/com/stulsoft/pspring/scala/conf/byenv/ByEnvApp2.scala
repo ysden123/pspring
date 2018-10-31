@@ -8,7 +8,7 @@ import javax.inject.Inject
 import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.context.annotation.PropertySource
-import org.springframework.core.env.AbstractEnvironment
+import org.springframework.core.env.{AbstractEnvironment, Environment}
 
 /**
   * @author Yuriy Stul
@@ -16,13 +16,15 @@ import org.springframework.core.env.AbstractEnvironment
 @SpringBootApplication
 @PropertySource(Array("classpath:${TEST_ENV}.application.properties"))
 class ByEnvApp2 extends CommandLineRunner {
+//  @Inject
+//  private var environment: AbstractEnvironment = _
   @Inject
-  private var environment: AbstractEnvironment = _
+  private var env: Environment = _
 
   override def run(args: String*): Unit = {
-    println("==>run")
-    println(s"""environment.getProperty("test.test1")=${environment.getProperty("test.test1")}""")
-    println("<==run")
+    println("==>ByEnvApp2 run")
+    println(s"""environment.getProperty("test.test1")=${env.getProperty("test.test1")}""")
+    println("<==ByEnvApp2 run")
   }
 
 }

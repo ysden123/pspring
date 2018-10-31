@@ -9,7 +9,7 @@ import org.springframework.boot.SpringApplication
 /**
   * @author Yuriy Stul
   */
-object StandardAppRunner {
+object StandardApp2Runner {
   def main(args: Array[String]): Unit = {
     SpringApplication.run(classOf[StandardApp2], args: _*).close()
   }
