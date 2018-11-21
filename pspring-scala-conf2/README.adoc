@@ -1,0 +1,3 @@
+# pspring-scala-conf2
+
+Demonstrates dynamic setting of the Spring Boot property file via setting of spring.config.location.
