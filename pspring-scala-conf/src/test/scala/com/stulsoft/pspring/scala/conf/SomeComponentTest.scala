@@ -21,7 +21,12 @@ class SomeComponentTest extends FunSuite with Matchers with SpringSomeComponentT
 
   test("testBoolArg1") {
     val result = someComponent.boolArg1()
-    println(s"result = $result")
+    result shouldBe "false"
+  }
+
+  test("test1") {
+    val result = someComponent.test1()
+    result shouldBe "some_test_value for unit test"
   }
 }
 
