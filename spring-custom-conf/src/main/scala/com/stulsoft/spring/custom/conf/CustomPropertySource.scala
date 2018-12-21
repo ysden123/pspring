@@ -9,15 +9,19 @@ import java.util.Properties
 
 import com.typesafe.scalalogging.LazyLogging
 
-/**
-  * @author Yuriy Stul
-  */
-
 /** Custom property source
   *
   * @param fileName specifies the file with properties
+  * @author Yuriy Stul
   */
 case class CustomPropertySource(fileName: String) extends LazyLogging {
+  /**
+    * Builds properties
+    *
+    * Current version builds properties from a file, but a source may be DB, XML, what ever.
+    *
+    * @return the properties
+    */
   def properties(): Properties = {
     val properties = new Properties()
     try {
@@ -28,11 +32,4 @@ case class CustomPropertySource(fileName: String) extends LazyLogging {
     }
     properties
   }
-
-  /*
-  def propertySource():Unit={
-    val sources: MutablePropertySources = ???
-    sources.addFirst(new PropertiesPropertySource("customSource", ))
-  }
-  */
 }

@@ -1,3 +1,5 @@
 # pspring-scala-conf2
 
 Demonstrates use of custom property provider.
+
+Inspired by https://coderwall.com/p/mm5ihw/how-to-add-custom-property-source-to-spring-s-environment[How to add custom property source to Spring's Environment]
