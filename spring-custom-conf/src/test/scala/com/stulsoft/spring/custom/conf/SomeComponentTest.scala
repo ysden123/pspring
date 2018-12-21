@@ -12,7 +12,8 @@ import org.springframework.test.context.{ContextConfiguration, TestContextManage
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner
 import org.springframework.test.context.support.AnnotationConfigContextLoader
 
-/**
+/** Properties are read directly from "test2.app.properties" file
+  *
   * @author Yuriy Stul
   */
 @RunWith(classOf[SpringJUnit4ClassRunner])
