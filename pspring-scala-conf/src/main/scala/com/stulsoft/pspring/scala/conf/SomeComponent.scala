@@ -17,4 +17,6 @@ class SomeComponent {
   private var env: Environment = _
 
   def boolArg1(): String = env.getProperty("bool-arg1")
+
+  def test1():String = env.getProperty("test.test1")
 }

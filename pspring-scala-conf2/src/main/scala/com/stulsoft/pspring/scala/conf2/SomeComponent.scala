@@ -14,7 +14,8 @@ import org.springframework.stereotype.Component
 @Component
 class SomeComponent {
   @Autowired
-  private var env: Environment = _
+  private val env: Environment = null
 
   def boolArg1(): String = env.getProperty("bool-arg1")
+  def test1(): String = env.getProperty("test.test1")
 }
