@@ -1,0 +1,8 @@
+spring:
+  profiles: test
+t1:
+  t11: value for test
+t2:
+  t21: common property for test
+o1: o1 common for test
+port: 12345
