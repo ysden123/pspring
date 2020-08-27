@@ -1,0 +1,3 @@
+= condition-app
+
+Playing with unit tests in Spring.

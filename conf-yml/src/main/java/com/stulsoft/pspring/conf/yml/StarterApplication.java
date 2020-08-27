@@ -11,7 +11,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.core.env.AbstractEnvironment;
-import org.springframework.core.env.Environment;
 
 import java.util.Scanner;
 
@@ -20,12 +19,10 @@ public class StarterApplication implements CommandLineRunner {
     private static final Logger logger = LoggerFactory.getLogger(StarterApplication.class);
 
     private final SomeService someService;
-    private final Environment env;
 
     @Autowired
-    public StarterApplication(final SomeService someService, final Environment env) {
+    public StarterApplication(final SomeService someService) {
         this.someService = someService;
-        this.env = env;
     }
 
     public static void main(String[] args) {
@@ -52,10 +49,6 @@ public class StarterApplication implements CommandLineRunner {
     @Override
     public void run(String... args) {
         logger.info("==>run");
-
-        var p = env.getActiveProfiles();
-        if (!(p.length > 0 && "test".equals(p[0]))){
-            someService.showProps();
-        }
+        someService.showProps();
     }
 }

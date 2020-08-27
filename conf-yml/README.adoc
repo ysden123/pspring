@@ -1,3 +1,5 @@
 = conf-yml
 
 Playing with Spring configuration in YAML format.
+
+Example of unit test with properties.

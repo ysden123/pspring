@@ -9,14 +9,14 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.stulsoft.pspring</groupId>
-	<artifactId>conf-yml</artifactId>
+	<artifactId>condition-app</artifactId>
 	<version>0.0.1</version>
-	<name>conf-yml</name>
-	<description>YAML configuration</description>
+	<name>condition-app</name>
+	<description>Playing with condition</description>
 
 	<properties>
-		<java.version>11</java.version>
-		<start-class>com.stulsoft.pspring.conf.yml.StarterApplication</start-class>
+		<java.version>14</java.version>
+		<start-class>com.stulsoft.pspring.condition.app.Application</start-class>
 	</properties>
 
 	<dependencies>
