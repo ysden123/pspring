@@ -30,7 +30,7 @@
 		<scala.logging.version>3.9.0</scala.logging.version>
 
 		<!--Unit test-->
-		<junit.version>4.12</junit.version>
+		<junit.version>4.13.1</junit.version>
 		<scala.test.version>3.2.0-SNAP10</scala.test.version>
 		<scala.check.version>1.14.0</scala.check.version>
 		<scala.mock.version>4.1.0</scala.mock.version>
