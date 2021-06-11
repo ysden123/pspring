@@ -6,7 +6,7 @@ package com.stulsoft.pspring.conf.yml;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.ConfigFileApplicationContextInitializer;
+import org.springframework.boot.test.context.ConfigDataApplicationContextInitializer;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.FilterType;
@@ -20,7 +20,7 @@ import org.springframework.test.context.support.AnnotationConfigContextLoader;
  */
 @SpringBootTest
 @ContextConfiguration(loader = AnnotationConfigContextLoader.class,
-        initializers = ConfigFileApplicationContextInitializer.class)
+        initializers = ConfigDataApplicationContextInitializer.class)
 @ComponentScan(basePackages = "com.stulsoft.pspring.conf.yml",
         excludeFilters = @ComponentScan.Filter(value = StarterApplication.class, type = FilterType.ANNOTATION))
 @ActiveProfiles(profiles = "test")

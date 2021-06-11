@@ -31,6 +31,7 @@ public class StarterApplication implements CommandLineRunner {
         System.out.println("0 - default");
         System.out.println("1 - dev");
         System.out.println("2 - prod");
+        System.out.println("3 - from start parameters");    // VM option: -Dspring.profiles.active=dev
         var choice = new Scanner(System.in).nextInt();
         switch (choice) {
             case 1:
@@ -38,6 +39,8 @@ public class StarterApplication implements CommandLineRunner {
                 break;
             case 2:
                 System.setProperty(AbstractEnvironment.ACTIVE_PROFILES_PROPERTY_NAME, "prod");
+                break;
+            case 3:
                 break;
             default:
                 System.setProperty(AbstractEnvironment.ACTIVE_PROFILES_PROPERTY_NAME, "default");
