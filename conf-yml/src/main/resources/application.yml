@@ -5,22 +5,29 @@ o1: o1 default
 ---
 #Common config
 spring:
-  profiles: default, dev, prod
+  config:
+    activate:
+      on-profile: default, dev, prod
 t2:
   t21: common property
 o1: o1 common
 port: 20017
+
 ---
 #Dev config
 spring:
-  profiles: dev
+  config:
+    activate:
+      on-profile: dev
 t1:
   t11: value for dev
 o1: o1 dev
 ---
 #Prod config
 spring:
-  profiles: prod
+  config:
+    activate:
+      on-profile: prod
 t1:
   t11: value for prod
 o1: o1 prod
