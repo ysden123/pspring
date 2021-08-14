@@ -2,7 +2,7 @@
  * Copyright (c) 2021. StulSoft
  */
 
-package com.stulsoft.pspring.restapi.controlers;
+package com.stulsoft.pspring.restapi.controllers;
 
 import com.stulsoft.pspring.restapi.data.Data1;
 import com.stulsoft.pspring.restapi.data.Data1UpdateRequest;

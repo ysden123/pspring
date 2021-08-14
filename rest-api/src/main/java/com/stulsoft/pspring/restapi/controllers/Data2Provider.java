@@ -2,7 +2,7 @@
  * Copyright (c) 2021. StulSoft
  */
 
-package com.stulsoft.pspring.restapi.controlers;
+package com.stulsoft.pspring.restapi.controllers;
 
 import com.stulsoft.pspring.restapi.data.Data1;
 import com.stulsoft.pspring.restapi.data.Data2;
@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Arrays;
-import java.util.Collections;
 
 /**
  * @author Yuriy Stul

@@ -1,0 +1,7 @@
+= rest-api-jwt
+
+Playing with REST API on Spring. Security with JWT.
+
+== References
+
+https://www.bezkoder.com/spring-boot-jwt-authentication/[Spring Boot Token based Authentication with Spring Security & JWT]
