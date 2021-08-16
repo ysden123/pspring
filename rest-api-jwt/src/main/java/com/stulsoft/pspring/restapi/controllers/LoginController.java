@@ -28,7 +28,7 @@ public class LoginController {
     @Autowired
     JwtUtils jwtUtils;
 
-    @GetMapping("/api/auth/login")
+    @GetMapping("/login")
     public Token login() {
         logger.info("==>login");
         Authentication authentication = new Authentication() {
