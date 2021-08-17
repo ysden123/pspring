@@ -22,7 +22,7 @@ function connect() {
             showGreeting(JSON.parse(greeting.body).content);
         });
         stompClient.subscribe('/topic/notification', function (greeting) {
-            showGreeting(JSON.parse(greeting.body).content);
+            showNotification(JSON.parse(greeting.body).content);
         });
     });
 
@@ -53,6 +53,10 @@ function sendName() {
 
 function showGreeting(message) {
     $("#greetings").append("<tr><td>" + message + "</td></tr>");
+}
+
+function showNotification(message) {
+    $("#notifications").append("<tr><td>" + message + "</td></tr>");
 }
 
 $(function () {
