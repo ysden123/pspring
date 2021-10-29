@@ -10,11 +10,11 @@
     </parent>
     <groupId>com.stulsoft.pspring</groupId>
     <artifactId>spring-websocket</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <name>spring-websocket</name>
     <description>Playing with WebSocket on Spring</description>
     <properties>
-        <java.version>16</java.version>
+        <java.version>17</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
     </properties>
