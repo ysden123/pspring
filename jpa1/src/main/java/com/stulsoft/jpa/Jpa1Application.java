@@ -5,6 +5,7 @@
 package com.stulsoft.jpa;
 
 import com.stulsoft.jpa.soft.ResourceRepository;
+import com.stulsoft.jpa.soft.SoftService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -26,7 +27,8 @@ public class Jpa1Application {
     public CommandLineRunner demo(Table1Repository table1Repository,
                                   Table2Repository table2Repository,
                                   TableAllRepository tableAllRepository,
-                                  ResourceRepository resourceRepository) {
+                                  ResourceRepository resourceRepository,
+                                  SoftService softService) {
         return (args -> {
             logger.info("in demo");
 
@@ -55,12 +57,7 @@ public class Jpa1Application {
             logger.info("TableAll by names ({}):", names);
             tableAllRepository.getByNames(names).forEach(r -> logger.info("{}", r));
 */
-            logger.info("All resources:");
-            resourceRepository.findAll().forEach(r -> logger.info("{}", r));
-
-            var names = Arrays.asList("resource 2", "resource 3", "resource 4");
-            logger.info("Resources by names ({}):", names);
-            resourceRepository.findResourcesByNames(names).forEach(r -> logger.info("{}", r));
+            softService.showResources();
         });
     }
 }
