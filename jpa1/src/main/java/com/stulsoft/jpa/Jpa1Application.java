@@ -4,6 +4,7 @@
 
 package com.stulsoft.jpa;
 
+import com.stulsoft.jpa.soft.Generic;
 import com.stulsoft.jpa.soft.ResourceRepository;
 import com.stulsoft.jpa.soft.SoftService;
 import org.slf4j.Logger;
@@ -13,6 +14,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.PersistenceContext;
 import java.util.Arrays;
 
 @SpringBootApplication
@@ -23,6 +28,9 @@ public class Jpa1Application {
         SpringApplication.run(Jpa1Application.class, args);
     }
 
+    @PersistenceContext
+    EntityManager entityManager;
+
     @Bean
     public CommandLineRunner demo(Table1Repository table1Repository,
                                   Table2Repository table2Repository,
@@ -32,6 +40,12 @@ public class Jpa1Application {
         return (args -> {
             logger.info("in demo");
 
+/*
+            logger.debug("entityManager == null is {}", entityManager == null);
+
+            var query = entityManager.createNativeQuery("select * from generic", Generic.class);
+            query.getResultList().forEach(generic -> logger.info("{}", generic));
+*/
 /*
             table1Repository.findById(1L).ifPresent(table -> logger.info("table: {}", table));
 
@@ -58,6 +72,8 @@ public class Jpa1Application {
             tableAllRepository.getByNames(names).forEach(r -> logger.info("{}", r));
 */
             softService.showResources();
+
+            softService.showResources(entityManager);
         });
     }
 }
