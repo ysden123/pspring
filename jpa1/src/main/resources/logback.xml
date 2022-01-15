@@ -5,7 +5,7 @@
 <configuration>
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%d{YYYY/mm/dd HH:mm:ss.SSS} [%thread] %-5level %logger{36}.%M - %msg%n</pattern>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] [%-5level] [%C:%L] - %m%n</pattern>
         </encoder>
     </appender>
 
@@ -14,7 +14,6 @@
         <file>logs/jpa1.log</file>
         <append>false</append>
         <encoder>
-            <!--<pattern>%d{YYYY/mm/dd HH:mm:ss.SSS} [%thread] %-5level %logger{36}.%M - %msg%n</pattern>-->
             <pattern>%d [%thread] [%-5level] [%C:%L] - %m%n</pattern>
         </encoder>
     </appender>
