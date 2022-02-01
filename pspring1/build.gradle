@@ -1,15 +1,44 @@
+plugins {
+    id 'org.springframework.boot' version '2.6.2'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+}
+
+group = 'com.stulsoft'
+version = '0.1.1'
+//sourceCompatibility = '17'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation('org.springframework.boot:spring-boot-starter-validation')
+    implementation 'ch.qos.logback:logback-classic:1.2.10'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+
+
+/*
+
 group 'com.stulsoft'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
 
-sourceCompatibility = 1.8
+sourceCompatibility = 17
 
 ext{
-    springVersion = '1.5.9.RELEASE'
-    junitVersion = '4.12'
-    mockitoVersion = '2.13.0'
-    logbackVersion = '1.1.2'
+    springVersion = '2.6.3'
+    junitVersion = '5.8.2'
+    mockitoVersion = '4.3.1'
+    logbackVersion = '1.2.10'
 }
 
 repositories {
@@ -17,6 +46,7 @@ repositories {
 }
 
 dependencies {
+    implementation
     compile group: 'org.springframework.boot', name: 'spring-boot-starter', version: "$springVersion"
     compile group: 'ch.qos.logback', name: 'logback-classic', version: "$logbackVersion"
 
@@ -24,3 +54,4 @@ dependencies {
     testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: "$springVersion"
     testCompile group: 'org.mockito', name: 'mockito-core', version: "$mockitoVersion"
 }
+*/

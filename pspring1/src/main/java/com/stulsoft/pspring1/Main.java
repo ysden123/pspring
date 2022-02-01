@@ -24,7 +24,7 @@ public class Main {
     }
 
     @Bean
-    CommandLineRunner commandLineRunner(ApplicationContext ctx) {
+    CommandLineRunner demo(ApplicationContext ctx) {
         return args -> {
             logger.debug("==>commandLineRunner");
             Manager manager = ctx.getBean(Manager.class);
