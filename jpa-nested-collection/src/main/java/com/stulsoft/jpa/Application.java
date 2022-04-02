@@ -19,36 +19,71 @@ public class Application {
     }
 
     @Bean
-    public CommandLineRunner runner(ContainerRepository containerRepository,
-                                    NestedRepository nestedRepository,
-                                    Nested2Repository nested2Repository,
+    public CommandLineRunner runner(DomainSourceMappingRepository domainSourceMappingRepository,
+                                    SourceFileRepository sourceFileRepository,
+                                    SourceLibraryRepository sourceLibraryRepository,
                                     SomeService someService) {
         return (args -> {
             logger.info("In runner");
 
-/*
             // clear all
-            containerRepository.deleteAll();
-            nestedRepository.deleteAll();
-            nested2Repository.deleteAll();
+            domainSourceMappingRepository.deleteAll();
+            sourceFileRepository.deleteAll();
+            sourceLibraryRepository.deleteAll();
 
             // fill data
+            SourceFile sourceFile_1 = new SourceFile("file 1", "sha1 1");
+            SourceFile sourceFile_2 = new SourceFile("file 2", "sha1 2");
+            SourceFile sourceFile_3 = new SourceFile("file 3", "sha1 3");
+            SourceFile sourceFile_4 = new SourceFile("file 4", "sha1 4");
+            SourceFile sourceFile_5 = new SourceFile("file 5", null);
+            SourceFile sourceFile_6 = new SourceFile(null, "sha1 6");
+            SourceFile sourceFile_7 = new SourceFile("file 7", "sha1 4");   // same sha1 for dif files
+            sourceFileRepository.saveAll(Arrays.asList(sourceFile_1,
+                    sourceFile_2,
+                    sourceFile_3,
+                    sourceFile_4,
+                    sourceFile_5,
+                    sourceFile_6,
+                    sourceFile_7
+            ));
 
-            Nested nested = new Nested("nested 1", 123);
-            nestedRepository.save(nested);
+            SourceLibrary sourceLibrary_1 = new SourceLibrary("lib 1");
+            SourceLibrary sourceLibrary_2 = new SourceLibrary("lib 2");
+            SourceLibrary sourceLibrary_3 = new SourceLibrary("lib 3");
+            SourceLibrary sourceLibrary_4 = new SourceLibrary("lib 4");
+            sourceLibraryRepository.saveAll(Arrays.asList(
+                    sourceLibrary_1,
+                    sourceLibrary_2,
+                    sourceLibrary_3,
+                    sourceLibrary_4
+            ));
 
-            Nested2 nested2_1 = new Nested2("kind 1");
-            Nested2 nested2_2 = new Nested2("kind 2");
-            nested2Repository.saveAll(Arrays.asList(nested2_1, nested2_2));
+            DomainSourceMapping domainSourceMapping = new DomainSourceMapping(sourceFile_1, sourceLibrary_1);
+            domainSourceMappingRepository.save(domainSourceMapping);
 
-            Container container = new Container("type 1", nested, nested2_1);
-            containerRepository.save(container);
+            domainSourceMapping = new DomainSourceMapping(sourceFile_1, sourceLibrary_2);
+            domainSourceMappingRepository.save(domainSourceMapping);
 
-            container = new Container("type 2", nested, nested2_2);
-            containerRepository.save(container);
+            domainSourceMapping = new DomainSourceMapping(sourceFile_2, sourceLibrary_2);
+            domainSourceMappingRepository.save(domainSourceMapping);
 
-*/
+            domainSourceMapping = new DomainSourceMapping(sourceFile_3, null);
+            domainSourceMappingRepository.save(domainSourceMapping);
 
+            domainSourceMapping = new DomainSourceMapping(sourceFile_3, sourceLibrary_3);
+            domainSourceMappingRepository.save(domainSourceMapping);
+
+            domainSourceMapping = new DomainSourceMapping(null, null);
+            domainSourceMappingRepository.save(domainSourceMapping);
+
+            domainSourceMapping = new DomainSourceMapping(null, sourceLibrary_3);
+            domainSourceMappingRepository.save(domainSourceMapping);
+
+            domainSourceMapping = new DomainSourceMapping(sourceFile_4, sourceLibrary_4);
+            domainSourceMappingRepository.save(domainSourceMapping);
+            domainSourceMapping = new DomainSourceMapping(sourceFile_7, sourceLibrary_4);
+            domainSourceMappingRepository.save(domainSourceMapping);
 /*
             containerRepository.findAll().forEach(container -> {
                 logger.info("{}", container);
@@ -56,8 +91,28 @@ public class Application {
 */
 
             try {
-                Map<String, Collection<Nested2>> searchResult = someService.findNested2(Arrays.asList("type 1","type 2"));
+                Map<String, Collection<SourceLibrary>> searchResult = someService
+                        .findSourceLibraries(Arrays.asList(
+                                "sha1 1",
+                                "sha1 2",
+                                "sha1 3",
+                                "sha1 4",
+                                "sha1 non exist",
+                                null,
+                                "sha1 6",
+                                ""));
                 logger.info("searchResult: {}", searchResult);
+
+/*
+                searchResult = someService
+                        .findSourceLibraries(Collections.EMPTY_LIST);
+                logger.info("searchResult: {}", searchResult);
+*/
+/*
+                searchResult = someService
+                        .findSourceLibraries(null);
+                logger.info("searchResult: {}", searchResult);
+*/
 /*
                 {
                     Nested nested = new Nested("nested 1", 123);

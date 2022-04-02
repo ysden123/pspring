@@ -2,9 +2,9 @@ package com.stulsoft.jpa;
 
 import javax.persistence.*;
 
-@Entity(name = "Nested")
-@Table(name = "nesteds")
-public class Nested {
+@Entity(name = "SourceLibrary")
+@Table(name = "sourceLibraries")
+public class SourceLibrary {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
@@ -13,15 +13,11 @@ public class Nested {
     @Column(name = "name", nullable = true)
     private String name;
 
-    @Column(name = "age", nullable = true)
-    private Integer age;
-
-    protected Nested() {
+    protected SourceLibrary() {
     }
 
-    public Nested(String name, Integer age) {
+    public SourceLibrary(String name) {
         this.name = name;
-        this.age = age;
     }
 
     public String getName() {
@@ -32,20 +28,11 @@ public class Nested {
         this.name = name;
     }
 
-    public Integer getAge() {
-        return age;
-    }
-
-    public void setAge(Integer age) {
-        this.age = age;
-    }
-
     @Override
     public String toString() {
-        return "Nested{" +
+        return "SourceLibrary{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", age=" + age +
                 '}';
     }
 }
