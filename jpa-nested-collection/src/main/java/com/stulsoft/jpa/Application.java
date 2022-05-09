@@ -84,11 +84,6 @@ public class Application {
             domainSourceMappingRepository.save(domainSourceMapping);
             domainSourceMapping = new DomainSourceMapping(sourceFile_7, sourceLibrary_4);
             domainSourceMappingRepository.save(domainSourceMapping);
-/*
-            containerRepository.findAll().forEach(container -> {
-                logger.info("{}", container);
-            });
-*/
 
             try {
                 Map<String, Collection<SourceLibrary>> searchResult = someService
