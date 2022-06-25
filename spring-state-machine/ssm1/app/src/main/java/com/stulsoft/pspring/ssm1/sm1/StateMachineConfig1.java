@@ -1,7 +1,7 @@
 package com.stulsoft.pspring.ssm1.sm1;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 import org.springframework.statemachine.config.EnableStateMachine;
 import org.springframework.statemachine.config.EnumStateMachineConfigurerAdapter;
 import org.springframework.statemachine.config.builders.StateMachineConfigurationConfigurer;
@@ -14,6 +14,7 @@ import org.springframework.statemachine.state.State;
 import java.util.EnumSet;
 
 @Configuration
+@Scope("prototype")
 @EnableStateMachine
 public class StateMachineConfig1 extends EnumStateMachineConfigurerAdapter<States, Events> {
     @Override
@@ -44,8 +45,7 @@ public class StateMachineConfig1 extends EnumStateMachineConfigurerAdapter<State
                 .source(States.S1).target(States.S2).event(Events.E2);
     }
 
-    @Bean
-    public StateMachineListener<States, Events> listener() {
+    private StateMachineListener<States, Events> listener() {
         return new StateMachineListenerAdapter<>() {
             @Override
             public void stateChanged(State<States, Events> from, State<States, Events> to) {

@@ -14,9 +14,12 @@ import reactor.core.publisher.Mono;
 @SpringBootApplication
 public class App {
     private final StateMachine<States, Events> stateMachine1;
+    private final StateMachine<States, Events> stateMachine2;
 
-    public App(StateMachine<States, Events> stateMachine1) {
+    public App(StateMachine<States, Events> stateMachine1,
+               StateMachine<States, Events> stateMachine2) {
         this.stateMachine1 = stateMachine1;
+        this.stateMachine2 = stateMachine2;
     }
 
     public static void main(String[] args) {
@@ -31,14 +34,20 @@ public class App {
         });
     }
 
-    private void test1(){
+    private void test1() {
         System.out.println("==>test1");
-        Message<Events>  message1 = MessageBuilder.withPayload(Events.E1).build();
-        Message<Events>  message2 = MessageBuilder.withPayload(Events.E2).build();
+        Message<Events> message1 = MessageBuilder.withPayload(Events.E1).build();
+        Message<Events> message2 = MessageBuilder.withPayload(Events.E2).build();
 
         stateMachine1.sendEvent(Mono.just(message1)).subscribe();
         stateMachine1.sendEvent(Mono.just(message2)).subscribe();
 
+        System.out.printf("stateMachine1 %s%n", stateMachine1.getState().getIds());
+
         stateMachine1.sendEvent(Mono.just(message1)).subscribe();
+
+        stateMachine2.sendEvent(Mono.just(message2)).subscribe();
+        stateMachine2.sendEvent(Mono.just(message1)).subscribe();
+        System.out.printf("stateMachine2 %s%n", stateMachine2.getState().getIds());
     }
 }
