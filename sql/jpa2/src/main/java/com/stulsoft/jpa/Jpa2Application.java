@@ -24,7 +24,9 @@ public class Jpa2Application {
         return (args -> {
             logger.info("in demo");
 //            testForVersioning(testVersionRepository);
-            testForAutoIncrement(testAutoRepository);
+//            testForAutoIncrement(testAutoRepository);
+            testCount(testAutoRepository);
+            testMinMax(testAutoRepository);
         });
     }
 
@@ -86,5 +88,19 @@ public class Jpa2Application {
             var testAuto = new TestAuto("name " + i);
             testAutoRepository.save(testAuto);
         }
+    }
+
+    private void testCount(TestAutoRepository testAutoRepository){
+        logger.info("==>testCount");
+        Integer count = testAutoRepository.findCount();
+        logger.info("count={}", count);
+    }
+
+    private void testMinMax(TestAutoRepository testAutoRepository){
+        logger.info("==>testMinMax");
+//        MinMaxTestAuto minMaxTestAuto = testAutoRepository.findMinMaxNames();
+//        Object minMaxTestAuto = testAutoRepository.findMinMaxNames();
+        String[] minMaxTestAuto = testAutoRepository.findMinMaxNames();
+        logger.info("minMaxTestAuto: {}", minMaxTestAuto);
     }
 }
