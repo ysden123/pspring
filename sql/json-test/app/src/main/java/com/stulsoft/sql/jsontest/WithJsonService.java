@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import java.time.Duration;
 import java.util.Collections;
 import java.util.List;
 
@@ -67,7 +68,10 @@ public class WithJsonService {
 
     public TripleCount findCountTriple() {
         try {
+            Long start = System.currentTimeMillis();
             List<List<Integer>> resultFromDB = withJsonRepository.countTriple();
+            Long finish = System.currentTimeMillis();
+            logger.info("Duration is {}", Duration.ofMillis(finish - start));
             if (resultFromDB.isEmpty()) {
                 return new TripleCount(0, 0, 0);
             }

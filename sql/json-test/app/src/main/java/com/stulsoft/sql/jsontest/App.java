@@ -8,7 +8,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,17 +27,21 @@ public class App implements CommandLineRunner {
     }
 
     @Override
-    public void run(String... args) throws Exception {
-            logger.info("==>run");
-            fill();
-            findAll();
-            findCountTest();
-            findCountTriple();
+    public void run(String... args){
+        logger.info("==>run");
+        fill();
+//            findAll();
+        findCountTest();
+        findCountTriple();
+        clear();
     }
 
-    private void fill() {
-        logger.info("==>findAll");
+    private void clear(){
         withJsonService.clear();
+    }
+    private void fill() {
+        logger.info("==>fill");
+        clear();
 
         List<WithJson> withJsons = new ArrayList<>();
         for (int i = 1; i <= 10; ++i) {
@@ -48,11 +51,11 @@ public class App implements CommandLineRunner {
             withJsons.add(withJson);
         }
 
-        for (int i = 1; i <= 10; ++i) {
+        for (int i = 1; i <= 100; ++i) {
             WithJson withJson = new WithJson();
             withJson.setType(JsonTypes.triple);
-            if (i%2==0)
-            withJson.setJsonData(String.format("{\"c1\":%d, \"c2\":%d, \"c3\":%d}", i, i + 1, i + 2));
+            if (i % 2 == 0)
+                withJson.setJsonData(String.format("{\"c1\":%d, \"c2\":%d, \"c3\":%d}", i, i + 1, i + 2));
             else
                 withJson.setJsonData(String.format("{\"c1\":%d,  \"c3\":%d}", i, i + 2));
             withJsons.add(withJson);
@@ -74,6 +77,7 @@ public class App implements CommandLineRunner {
         Integer result = withJsonService.findCountTest();
         logger.info("result = {}", result);
     }
+
     private void findCountTriple() {
         logger.info("==>findCountTriple");
         WithJsonService.TripleCount result = withJsonService.findCountTriple();
