@@ -51,7 +51,10 @@ public class App implements CommandLineRunner {
         for (int i = 1; i <= 10; ++i) {
             WithJson withJson = new WithJson();
             withJson.setType(JsonTypes.triple);
+            if (i%2==0)
             withJson.setJsonData(String.format("{\"c1\":%d, \"c2\":%d, \"c3\":%d}", i, i + 1, i + 2));
+            else
+                withJson.setJsonData(String.format("{\"c1\":%d,  \"c3\":%d}", i, i + 2));
             withJsons.add(withJson);
         }
 
