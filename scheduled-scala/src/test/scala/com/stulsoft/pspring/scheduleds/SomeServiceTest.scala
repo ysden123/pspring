@@ -7,12 +7,14 @@
   */
 package com.stulsoft.pspring.scheduleds
 
-import org.scalatest.FunSuite
+import org.scalatest.funsuite.FunSuite
+
 
 class SomeServiceTest extends FunSuite {
 
   test("testDoServiceWork") {
-    new SomeService doServiceWork()
+    (new SomeService).doServiceWork()
+    assert(true)
   }
 
 }

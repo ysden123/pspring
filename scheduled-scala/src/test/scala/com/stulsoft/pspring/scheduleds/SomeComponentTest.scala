@@ -8,7 +8,8 @@
 package com.stulsoft.pspring.scheduleds
 
 import org.junit.runner.RunWith
-import org.scalatest.{BeforeAndAfterEach, FunSuite, Suite}
+import org.scalatest.funsuite.FunSuite
+import org.scalatest.{BeforeAndAfterEach, Suite}
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.{ComponentScan, Configuration}
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner
@@ -21,7 +22,8 @@ class SomeComponentTest extends FunSuite with SpringSomeComponentTest {
   @Autowired private val someComponent: SomeComponent = null
 
   test("testWork") {
-    someComponent work()
+    someComponent.work()
+    assert(true)
   }
 }
 

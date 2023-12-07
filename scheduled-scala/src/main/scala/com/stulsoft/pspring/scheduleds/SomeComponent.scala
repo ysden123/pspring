@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component
 class SomeComponent(@Autowired() val someService: SomeService) extends LazyLogging {
   def work(): Unit = {
     logger.info("==>work")
-    someService doServiceWork()
+    someService.doServiceWork()
     logger.info("<==work")
   }
 }
