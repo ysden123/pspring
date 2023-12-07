@@ -5,7 +5,7 @@
 
 	<groupId>com.stulsoft</groupId>
 	<artifactId>scheduled-java</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 	<packaging>jar</packaging>
 
 	<name>scheduled-java</name>
@@ -14,45 +14,30 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.0.5.RELEASE</version>
+		<version>3.2.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<java.version>10</java.version>
-        <scala.version>2.12.6</scala.version>
+		<java.version>21</java.version>
         <scala.compat.version>2.12</scala.compat.version>
 
 		<!--Logging-->
-		<logback.version>1.2.3</logback.version>
-		<scala.logging.version>3.9.0</scala.logging.version>
+		<logback.version>1.2.9</logback.version>
 
 		<!--Unit test-->
 		<junit.version>4.13.1</junit.version>
-		<scala.test.version>3.2.0-SNAP10</scala.test.version>
-		<scala.check.version>1.14.0</scala.check.version>
-		<scala.mock.version>4.1.0</scala.mock.version>
 	</properties>
 
 	<dependencies>
-        <dependency>
-            <groupId>org.scala-lang</groupId>
-            <artifactId>scala-library</artifactId>
-            <version>${scala.version}</version>
-        </dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
 		</dependency>
 		
 		<!-- Logging -->
-		<dependency>
-			<groupId>com.typesafe.scala-logging</groupId>
-			<artifactId>scala-logging_${scala.compat.version}</artifactId>
-			<version>${scala.logging.version}</version>
-		</dependency>
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
@@ -68,26 +53,6 @@
 		</dependency>
 
 		<!-- Test -->
-		<!--Scalatest-->
-		<dependency>
-			<groupId>org.scalatest</groupId>
-			<artifactId>scalatest_${scala.compat.version}</artifactId>
-			<version>${scala.test.version}</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.scalacheck</groupId>
-			<artifactId>scalacheck_${scala.compat.version}</artifactId>
-			<version>${scala.check.version}</version>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.scalamock</groupId>
-			<artifactId>scalamock_${scala.compat.version}</artifactId>
-			<version>${scala.mock.version}</version>
-			<scope>test</scope>
-		</dependency>
-
 		<!--Spring test-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -98,27 +63,6 @@
 
 	<build>
 		<plugins>
-            <plugin>
-                <!-- see http://davidb.github.com/scala-maven-plugin -->
-                <groupId>net.alchim31.maven</groupId>
-                <artifactId>scala-maven-plugin</artifactId>
-                <version>3.3.1</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>compile</goal>
-                            <goal>testCompile</goal>
-                        </goals>
-                        <configuration>
-                            <args>
-                                <!--<arg>-make:transitive</arg>-->
-                                <arg>-dependencyfile</arg>
-                                <arg>${project.build.directory}/.scala_dependencies</arg>
-                            </args>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
